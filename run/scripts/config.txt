@@ -1,0 +1,13 @@
+#config file for command line version of TargetOrtho
+
+#set default genome version
+c_eleg_genome_version='WS220'
+c_brig_genome_version='WS233'
+c_rema_genome_version='WS233'
+c_japo_genome_version='WS233'
+c_bren_genome_version='WS233'
+d_mel_genome_version='r551'
+d_sec_genome_version='r13'
+d_sim_genome_version='r14'
+d_ere_genome_version='r13'
+d_yak_genome_version='r13'
