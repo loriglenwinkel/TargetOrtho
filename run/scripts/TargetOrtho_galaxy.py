@@ -82,7 +82,7 @@ def get_galaxy_input():
 def main():
     dic=get_galaxy_input()
     output_dir = "%s/run/output/%s" %(TargetOrtho_path,dic["jobID"])    
-    #print the stdout logg, in case errors have occurs (force galaxy to display stdout from tool)
+    #print the stdout log, in case errors have occurs (force galaxy to display stdout from tool)
     stdout_file="%s/run/%sTargetOrthoStdout.out" %(TargetOrtho_path,dic["jobID"])
     for l in file(stdout_file,'r').readlines():
         print l
