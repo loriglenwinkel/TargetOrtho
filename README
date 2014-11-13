@@ -1,0 +1,31 @@
+System Requirements:
+   x86_64 GNU/Linux
+   MEME package version 4.0 
+   python 2.7+
+   python modules:
+      scipy
+      numpy
+      matplotlib
+
+To add TargetOrtho as a galaxy tool in a local galaxy instance manually:
+   Install galaxy instance: See http://wiki.galaxyproject.org/Admin/Get%20Galaxy
+   Place the uncompressed TargetOrtho directory in the tools directory found in the galaxy root directory. (path_to_galaxy/tools/TargetOrtho) 
+   Add the following line to the tool_conf.xml in the desired secion of the toolbox (tool_conf.xml is found in the galaxy root directory:path_to_galaxy/tool_conf.xml)
+       <tool file="TargetOrtho/TargetOrtho.xml"/>
+   Restart galaxy
+
+To run TargetOrtho from the command line:
+   navigate to TargetOrtho/run/scripts
+   command: python TargetOrtho.py -h
+   Description: shows TargetOrtho usage including default parameters.
+   
+To run TargetOrtho with example files:
+   Example 1: 1 motif
+   navigate to TargetOrtho/run/scripts
+   command: python TargetOrtho.py -f ../examples/meme_1motif.txt -q ../examples/query_genes.txt -w True 
+   Description: runs TargetOrtho using a meme formatted input file and a query list of genes. The query only option is set to True (-w True) so that only query gene results are reported (opposed to whole genome results plus query gene results). Results are output to TargetOrtho/output/ by default.
+   
+   Example 2: CRM (2 motif search)
+   navigate to TargetOrtho/run/scripts
+   command: python TargetOrtho.py -f ../examples/meme_2motifs.txt -q ../examples/query_genes.txt -w True -P '1e-4 1e-5'
+   Description: runs TargetOrtho using a meme formatted input file conatining two motifs and using a query list of genes. The query only option is set to True (-w True) so that only query gene results are reported (opposed to whole genome results plus query gene results). Resulting candidate genes have a least one of each input motif (see CRM results files). Results are output to TargetOrtho/output/ by default.

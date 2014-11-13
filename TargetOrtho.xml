@@ -1,0 +1,216 @@
+<tool id="TargetOrtho" name="TargetOrtho">
+        <requirements>
+	  <requirement type="package" version="0.12.0">scipy</requirement>
+          <requirement type="package" version="1.2.1">matplotlib</requirement> 
+        </requirements>
+        <description>- transcription factor target gene prediction</description>
+	<description></description>
+	<command interpreter="python">run/scripts/TargetOrtho_galaxy.py \$TargetOrtho $jobID $input $input2 $html_file $param6 $param99 $html_file.files_path
+	#if $choose.mode=="C":$choose.param7 $choose.param8 $choose.param9 $choose.param10 $choose.param11 $choose.param51 $choose.param12 $choose.param13 $choose.param14 $choose.param15 $choose.param16 $choose.param17 $choose.param59  $choose.param60  $choose.param61
+	#if $choose.mode=="C":#if $choose.count.matrices=="1":$choose.count.matrices  $choose.count.param19 
+	#if $choose.mode=="C":#if $choose.count.matrices=="2":$choose.count.matrices $choose.count.param19 $choose.count.param20 $choose.count.param21  $choose.count.param23  
+	#if $choose.mode=="C":#if $choose.count.matrices=="3":$choose.count.matrices $choose.count.param19 $choose.count.param20 $choose.count.param21  $choose.count.param23  $choose.count.param25 
+	#if $choose.mode=="C":#if $choose.count.matrices=="4":$choose.count.matrices $choose.count.param19 $choose.count.param20 $choose.count.param21  $choose.count.param23 $choose.count.param25 $choose.count.param27 
+	#if $choose.mode=="C":#if $choose.count.matrices=="5":$choose.count.matrices $choose.count.param19 $choose.count.param20 $choose.count.param21  $choose.count.param23 $choose.count.param25  $choose.count.param27 $choose.count.param29 
+	
+
+	</command>
+
+	<inputs>
+	        <param name="jobID" label="job name" type="text" value="_" help="TF-1_targets (no spaces allowed in job name)"/>
+		<param name="input" type="data" format="text" label="add a motif file" help="meme format (plain text) motif file, see example input below"/>
+		<param name="input2" type="data" format="text" optional="True" label="add a query list of genes (optional)" help="gene public name (wormbase/wormmart) or FBgn (Flybase) in plain text format"/>
+		<param name="param6" label="only report query list results (faster)" type="boolean"  truevalue="True" falsevalue="False" checked="False"/>		
+		<param name="param99" label="reference genome" type="select">
+		  <option value="nematodes">C. elegans</option>
+		  <option value="melanogaster5">D. melanogaster</option>
+		</param>
+		<conditional name="choose">		
+			<param name="mode" type="select">
+				<option value="D">use default settings</option>
+				<option value="C">adjust parameters</option>
+			</param>
+			<when value="D">
+				<!-- do nothing here -->
+      			</when> 
+        		<when value="C">
+			<conditional name="count">
+			        <param name="matrices" type="select" label="Number of log-odds motifs in input file">
+			               <option value="1">1 input motif</option>
+				       <option value="2">2 input motifs</option>
+				       <option value="3">3 input motifs</option>
+				       <option value="4">4 input motifs</option>
+				       <option value="5">5 input motifs</option>
+				</param>
+				<when value="1">
+				<param name="param19" type="text" value="1e-4" label="p value cutoff for motif 1 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				</when>
+				<when value="2">
+				<param name="param20" type="text" value="6000" label="maximum distance between motifs (for more than 1 motif  query only)" help="positive or negative integer"/>			
+				<param name="param21" type="select" label="Order of motifs">
+				       <option value="False">Unordered</option>
+				       <option value="True">Order in motif input file</option>
+				</param>
+				<param name="param19" type="text" value="1e-4" label="p value cutoff for motif 1 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param23" type="text" value="1e-4" label="p value cutoff for motif 2 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				</when>
+				<when value="3">
+				<param name="param20" type="text" value="1000" label="maximum distance between bindings sites (for more than 1 motif query only)" help="positive or negative integer"/>			
+
+				<param name="param21" type="select" label="Order of binding sites">
+				       <option value="False">Unordered</option>
+				       <option value="True">Order in motif input file</option>
+				</param>
+				<param name="param19" type="text" value="1e-4" label="p value cutoff for motif 1 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param23" type="text" value="1e-4" label="p value cutoff for motif 2 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param25" type="text" value="1e-4" label="p value cutoff for motif 3 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				</when>
+				<when value="4">
+				<param name="param20" type="text" value="6000" label="maximum distance between bindings sites (for more than 1 motif query only)" help="positive or negative integer"/>			
+				<param name="param21" type="select" label="Order of binding sites">
+				       <option value="False">Unordered</option>
+				       <option value="True">Order in motif input file</option>
+				</param>
+				<param name="param19" type="text" value="1e-4" label="p value cutoff for motif 1 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param23" type="text" value="1e-4" label="p value cutoff for motif 2 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param25" type="text" value="1e-4" label="p value cutoff for motif 3 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param27" type="text" value="1e-4" label="p value cutoff for motif 4 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				</when>
+				<when value="5">
+				<param name="param20" type="text" value="1000" label="maximum distance between TF bindings sites (for more than 1 motif query only)" help="positive or negative integer"/>			
+				<param name="param21" type="select" label="Order of binding sites">
+				       <option value="False">Unordered</option>
+				       <option value="True">Order in motif input file</option>
+				</param>
+				<param name="param19" type="text" value="1e-4" label="p value cutoff for motif 1 scan" help="p value must be greater than 0 and less than or equal to 1 "/>   
+				<param name="param23" type="text" value="1e-4" label="p value cutoff for motif 2 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param25" type="text" value="1e-4" label="p value cutoff for motif 3 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param27" type="text" value="1e-4" label="p value cutoff for motif 4 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				<param name="param29" type="text" value="1e-4" label="p value cutoff for motif 5 scan" help="p value must be greater than 0 and less than or equal to 1 "/>  
+				</when>
+			</conditional>
+			<param name="param7" type="text" value="6000" label="maximum upstream" help="positive integer,0, or None:distance to search upstream of ATG"/>
+			<param name="param8" type="text" value="0" label="maximum downstream" help="positive integer,0,or None:distance to search downstream of ATG"/>
+			<param name="param9" label="filter out exons" type="boolean" truevalue="True" falsevalue="False" checked="True"/>
+			<param name="param10" label="require region overlap" type="boolean" truevalue="True" falsevalue="False" checked="True"/>
+			<param name="param11" label="number of genes allowed between site and associated gene" type="text" value="20" help="allows a site to be associated with a gene that is not the closest gene to the site."/>
+			<param name="param51" type="text" value="4000" label="cutoff distance from ATG if more than one gene allowed between binding site and associated gene"/>
+			<param name="param12" type="integer" value="1" label="number of top ranked sites to show per gene in the top ranked results" help="positive interger"/>
+			<param name="param13" type="text" value="1" label="maximum offset variance" help="any real number"/>
+			
+			<param name="param14" type="float" value="1.0" label="scale factor for average species conserved site score" help="any real number"/>
+
+			<param name="param15" type="float" value="1.0" label="scale factor for average species region score" help="any real number"/>
+
+			<param name="param16" type="float" value="1.0" label="scale factor for average species region site count" help="any real number"/>
+
+			<param name="param17" type="float" value="1.0" label="scale factor for average species average gene score" help="any real number"/>
+
+			<param name="param59" type="float" value="1.0" label="scale factor for average species gene site count" help="any real number"/>
+
+			<param name="param60" type="float" value="1.0" label="scale factor for conservation" help="any real number"/>
+
+			<param name="param61" type="float" value="1.0" label="scale factor for average species offset variance" help="any real number"/>									
+			</when>
+		</conditional>
+
+	</inputs>
+	<outputs>
+		<data name="html_file" format="html"  label="TargetOrtho Results on ${on_string} (html/text)"/>
+	</outputs>
+	<tests>
+	  <test>  
+	    <param name="input" value="meme_1motif.txt" />
+	    <param name="input2" value="query_genes.txt" />
+	    <param name="param6" value="True" />
+	    <param name="mode" value="C" />
+	    <param name="param19" value="1e-5" />	    
+	  </test>
+	</tests>
+	<help>
+
+**What it does**
+TargetOrtho provides a comparative genomic approach for the identification of transcription factor target genes for which a collection of binding sites, represented as position weight matrix (PWM), has been experimentally identified. Briefly, genomes of five species are searched for motif matches against a PWM in meme plain text format (REF) derived from experimentally validated binding sites. Sites from each species are then associated with the nearest exon in the upstream and downstream direction and matched to orthologous regions in the reference genome (currently C. elegans or D. melanogaster). Finally filtering and ranking criteria are applied to each reference genome motif match resulting in a ranked list of sites and their associated target genes. 
+
+If the user chooses to upload a query list of genes, TargetOrtho will report specifically on those genes that are associated with transcription factor(s) binding sites. This function simply sorts all the results from TargetOrtho to show the user if any genes of interest were found. If "Report Query List Results Only" is checked, TargetOrtho will only report results for the uploaded query list of genes only. The results are still ranked among all possible motif matches in the range specified by "total motif matches to find per strand"
+
+The results are output in an html table called QueryListResults.TargetOrtho output consists of browsable HTML tables, tab delimited text files and bed formatted genome browser track files along with a compressed folder containing all results for download.
+
+ 
+-----	
+
+**Example Input**
+-Getting started with TargetOrtho: hobertlab.org/TargetOrtho/TargetOrtho_Getting_Started.pdf
+-input options
+     1. one MEME plain text format file (see http://meme.nbcr.net/meme/doc/meme-format.html) with one to 5 motif(s) --> TargetOrtho
+     2. Workflow1 \'TargetOrtho_sequence input\': DNA sequences in fasta format --> meme tool --> TargetOrtho
+     3. Workflow2 \'TargetOrtho_transfac input\': transfac.dat file(up to 5 transfac.dat files concatenated) --> transfac2meme tool --> TargetOrtho
+
+- input option 1 example (2 motifs used as input for CRM target gene search)::
+
+				MEME version 4
+				
+				ALPHABET= ACGT
+				
+				strands: + -
+				
+				Background letter frequencies (from uniform background):
+				A 0.32500 C 0.17500 G 0.17500 T 0.32500
+				
+				MOTIF unc-3_Dep6
+				
+				log-odds matrix: alength= 4 w= 10 n= 20 bayes= -664.386 E= 1.7e-058
+				-1097 100 -1097 100 
+				-1097 244 -1097 -270 
+				-1097 165 -1097 47 
+				-170 219 -1097 -170 
+				-70 100 -22 -12 
+				-111 -181 100 47 
+				-1097 -181 244 -1097 
+				-70 -1097 178 -70 
+				-1097 -1097 251 -1097 
+				130 -1097 19 -1097 
+				
+				MOTIF DBE
+				
+				log-odds matrix: alength=4 width = n
+				6       10      251     -2827
+				-114    -2738   -240    162
+				162     180     56      -89
+				162     -216    -2738   -2827
+				162     -2738   99      -2827
+				-2827   251     -205    -147
+				162     -2738   -2738   -78
+
+
+
+- Query list file input example (optional input)::
+
+     #dopaminergic enriched genes
+     ace-1
+     acr-5
+     amt-3
+     aqp-6
+     bas-1
+     bbs-1
+     bbs-2
+     cat-1
+     cat-2
+     cat-4
+     cca-1....
+
+-----
+
+**Details**
+
+.. image:: ./static/images/inputs_outputs.png
+
+**Reference**
+
+If you use TargetOrtho, please cite:
+
+Lori Glenwinkel, Di Wu, Gregory Minevich and Oliver Hobert. TargetOrtho: A Phylogenetic Footprinting Tool to Identify Transcription Factor Targets. Genetics May 1, 2014 vol. 197 no. 1 61-76
+
+
+	</help>
+</tool>
