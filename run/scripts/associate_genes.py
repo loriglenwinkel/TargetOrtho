@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION: takes output from fimo (meme suite v4.0 script) motif scan, reformats data and feeds it to associaite_genes (binary). 
 import sys
 import os
 from optparse import OptionParser
