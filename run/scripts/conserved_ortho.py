@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#Author: Lori Glenwinkel
 import itertools,sys
 import sqlite3 as lite
 from optparse import OptionParser
