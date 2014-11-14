@@ -1,5 +1,8 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:creates output directorys, writes input summary file
+
 import os
 
 def mkMainDirs(TargetOrtho_path):
