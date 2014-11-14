@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#Author: Lori Glenwinkel
 import os,sys,datetime
 
 #run TargetOrtho tool via Galaxy with this script. Also requires TargetOrtho.xml
