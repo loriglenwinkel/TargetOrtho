@@ -1,8 +1,9 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:Feeds user input from the Galaxy TargetOrtho tool to TargetOrtho.py. 
 import os,sys,datetime
 
-#run TargetOrtho tool via Galaxy with this script. Also requires TargetOrtho.xml
 p=os.path.abspath(__file__).split('/')[1:-3]
 s=''
 for i in p:
