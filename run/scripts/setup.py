@@ -1,7 +1,6 @@
 #!/usr/bin/python
+#Author: Lori Glenwinkel
 import os
-
-
 
 def mkMainDirs(TargetOrtho_path):
 	if not os.path.exists('%s/run/output' %TargetOrtho_path):os.makedirs('%s/run/output' %TargetOrtho_path)
