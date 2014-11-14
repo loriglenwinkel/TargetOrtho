@@ -7,6 +7,8 @@ System Requirements:
       numpy
       matplotlib
 
+Tested on Amazon EC2 instance using ubuntu-precise-12.04-amd64-server-20131003 (ami-a73264ce)
+
 INSTALL 
 git clone https://github.com/loriglenwinkel/TargetOrtho.git 
 OR download directly using "Download Zip" button at https://github.com/loriglenwinkel/TargetOrtho
