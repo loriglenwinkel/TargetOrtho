@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#Author: Lori Glenwinkel
 import sys
 import os
 from optparse import OptionParser
