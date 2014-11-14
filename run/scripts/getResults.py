@@ -1,3 +1,5 @@
+#!/usr/bin/python
+#Author: Lori Glenwinkel
 import sys
 import numpy as np
 import  os
