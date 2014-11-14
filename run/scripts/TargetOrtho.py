@@ -8,7 +8,6 @@ import setup
 import validate_infile
 import threadScripts
 #command line version (or run through galaxy at alice.cumc.columbia.edu:8080)    
-
 parser = OptionParser()
 parser.add_option( '-f', '--file', dest='infile', help='-f filepath/motif_input.txt' )
 parser.add_option('-o', '--output_dir',dest='output_dir',help='-o my_results_dir, default output is to www.alice.cumc.columabie.du/TargetOrtho/jobID. A link to this webpage is printed at the end of the job')
@@ -39,7 +38,6 @@ parser.add_option('-N','--scale_G',dest='scale_G',help='-g 1 ..factor to scale t
 parser.add_option('-O','--species',dest='species',help='-O melagnogaster or -O nematodes -O nem_mel')
 ( options, args ) = parser.parse_args()
 
-
 print options.jobID,'jobID in TargetOrtho.py'
 
 def fetchConfig(configFile):
@@ -50,7 +48,8 @@ def fetchConfig(configFile):
         sep=line.split('\'')
         if len(sep)>1:configDic[sep[0]]=sep[1]
     return configDic
-
+    
+#get TargetOrtho path
 p=os.path.abspath(__file__).split('/')[1:-3]
 s=''
 for i in p:
@@ -58,14 +57,15 @@ for i in p:
 TargetOrtho_path=s
 print TargetOrtho_path,'TargetOrtho_path'
 
-#first try to use the config.txt file given by the user, next use the default config file in scripts/
+#find confit.txt
+#try to use the config.txt file given by the user, next use the default config file in scripts/
 try:configDic=fetchConfig(options.configFilePath)
 except:configDic=fetchConfig('%s/run/scripts/config.txt' %TargetOrtho_path)
 
-speciesList=['c_eleg','c_brig','c_bren','c_rema','c_japo']#species1 is reference species
-
-speciesList2=['d_mel','d_sec','d_sim','d_yak','d_ere']#species1 is reference species
-
+#define species list
+#species1 is reference species
+speciesList=['c_eleg','c_brig','c_bren','c_rema','c_japo']
+speciesList2=['d_mel','d_sec','d_sim','d_yak','d_ere']
 if options.species=='melanogaster5':speciesList=speciesList2
 speciesStr=''
 for n in speciesList:
@@ -83,35 +83,6 @@ def main():
         print jobID,jobTag
         return jobID,jobTag
 
-    def getScore(seq,PSSMdic):
-        seqs=seq.split()
-        minScore=''
-        for j in range(len(PSSMdic)):
-            posDic={}
-            count=0
-            for n in PSSMdic[j+1]:
-                n=[int(k) for k in n]
-                posDic[count]=n            
-                count+=1           
-            if len(seqs[j])==len(posDic):
-                maxScoreList=[]
-                maxSum=0
-                seqSum=0
-                seq=seqs[j]    
-                for n in range(len(seq)):
-                    maxSum=maxSum + max(posDic[n])                    
-                    if seq[n]=='A':score=int(posDic[n][0])
-                    elif seq[n]=='C':score=posDic[n][1]
-                    elif seq[n]=='G':score=posDic[n][2]
-                    elif seq[n]=='T':score=posDic[n][3]
-                    else:print 'symbol not in nucleotide alphabet', sys.exit(1)
-                    seqSum=seqSum+score
-                score= seqSum-maxSum            
-                minScore=minScore+" " + str(score)
-            else:print 'input seq length does not match matrix length',sys.exit(1)            
-        print minScore,'minScore'
-        return minScore
-        
     def load_defaults():
         """unique to cmd line version"""
         print 'loading default dic: load_defaults()'
@@ -177,12 +148,15 @@ def main():
         'genes_between':options.genes_between,
         'max_dist_if_genes_between':options.max_dist_if_genes_between}
         #fill in missing command line parameters with default values
+       
+        
+        #validate input motif file
+        matrix_count,matrixNamesList=validate_infile.validate(options.infile,TargetOrtho_path,jobID)
         print 'filling in missing parameters using default values'
         print jobID,'jobID'
+        print matrix_count,matrixNamesList
         
-        matrix_count,matrixNamesList=validate_infile.validate(options.infile,TargetOrtho_path,jobID)
         #load parameters from command line or fill in default values. If run through galaxy, galaxy will pass parameters to command line options.
-        print matrix_count,matrixNamesList, 'inside of load cmd line dic'
         defaults_dic=load_defaults()
         for k,v in defaults_dic.iteritems():            
             if k in cmd_line_params_dic.keys():
@@ -196,7 +170,7 @@ def main():
             print k,v,type(v)    
         
     def build_queues(matrix_count,speciesList,param_dic,matrixNamesList,jobID,gene_name):
-        """sets up queues for threadScripts module to execut fimo,associate_genes.py, and findOrthoAssoc.py for each species, for each matrix in parallel"""
+        """sets up queues for threadScripts module to execute fimo,associate_genes.py, and findOrthoAssoc.py for each species, for each matrix in parallel"""
         queue1=[]
         queue2=[]
         queue3=[]
@@ -220,14 +194,12 @@ def main():
             queue5.append("python %s/run/scripts/getResults.py -j %s -m %s -v %s -i %s -l %s -n \'%s\' -t %s  -a %s -b %s -c %s -d %s -e %s -f %s -g %s -k %s " %(TargetOrtho_path,jobID,n+1,param_dic['max_offset_variance'],output_dir,speciesStr,matrixNamesList[n],param_dic["top_ranked_per_gene"],param_dic['scale_A'],param_dic['scale_B'],param_dic['scale_C'],param_dic['scale_D'],param_dic['scale_E'],param_dic['scale_F'],param_dic['scale_G'],TargetOrtho_path))
         return queue1,queue2,queue3,queue4,queue5
     
-    #assign a jobID    
+    #assign a jobID, make output dir,load parameters
     jobID,jobTag=assign_jobID()    
     output_dir="%s/run/output/%s" %(TargetOrtho_path,jobID)
-
     setup.mkMainDirs(TargetOrtho_path)
     param_dic,matrix_count,matrixNamesList=load_cmd_line_params()
     print matrixNamesList        
-    
     print_parameters(param_dic),'final params'
 
     try:
