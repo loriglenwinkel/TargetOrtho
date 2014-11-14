@@ -1,0 +1,22 @@
+MEME version 4
+
+ALPHABET= ACGT
+
+strands: + -
+
+Background letter frequencies (from uniform background):
+A 0.32500 C 0.17500 G 0.17500 T 0.32500
+
+MOTIF unc-3_dep110612
+
+log-odds matrix: alength= 4 w= 10 n= 41 bayes= 3.68658 E= 1.5e-091
+-1200 -184 -1200 155 
+-1200 251 -1200 -1200 
+-174 233 -1200 -373 
+-1200 244 -284 -373 
+-57 155 -1200 -28 
+59 16 -26 -93 
+-174 -1200 220 -174 
+66 -284 133 -373 
+-273 -284 240 -1200 
+66 -126 106 -273

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<repositories>
+     <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_scipy_0_12" owner="bgruening" changeset_revision="e4f395310680" />
+     <repository toolshed="http://testtoolshed.g2.bx.psu.edu" name="package_matplotlib_1_2" owner="bgruening" changeset_revision="c888aa8ed318" />
+</repositories>
