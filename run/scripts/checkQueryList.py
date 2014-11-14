@@ -1,9 +1,13 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION: filters TargetOrtho results for user defined genes of intereste (from query list input)
+
 import os,re
 import sys
 from optparse import OptionParser
 import sqlite3 as lite
+
 parser = OptionParser()
 parser.add_option('-q','--file',dest='filepath',help='-f queryFiles.txt')
 parser.add_option('-m','--matrix_count',dest='matrix_count',help='-m 3')
