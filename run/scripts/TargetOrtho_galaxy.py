@@ -1,4 +1,6 @@
+#!/usr/bin/python
 import os,sys,datetime
+
 #run TargetOrtho tool via Galaxy with this script. Also requires TargetOrtho.xml
 p=os.path.abspath(__file__).split('/')[1:-3]
 s=''
@@ -7,11 +9,13 @@ for i in p:
 TargetOrtho_path=s
 
 def assign_jobID():
+    """assign a Galaxy job ID"""
     dt=datetime.datetime.now()
     jobID="g%s%s%s%s%s%s" %(dt.year,dt.month,dt.day,dt.hour,dt.minute,dt.second)
     return jobID
 
 def get_galaxy_input():
+    """retrieve user input parameters from Galaxy tool inferface """
     dic={
         'jobTag':sys.argv[1],
         'PSSMinfile':sys.argv[2],
