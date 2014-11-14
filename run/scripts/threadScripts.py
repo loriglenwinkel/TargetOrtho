@@ -1,5 +1,8 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:executes system commands in parrallel
+
 import Queue
 import threading
 import os
