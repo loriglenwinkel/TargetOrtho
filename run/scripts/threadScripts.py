@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/python
+#Author: Lori Glenwinkel
 import Queue
 import threading
 import os
