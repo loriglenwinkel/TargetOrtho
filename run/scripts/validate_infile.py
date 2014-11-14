@@ -1,5 +1,8 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:valides motif input file to ensure log-odds PSSM in MEME v4 format is used.
+
 import os
 import sys
 
