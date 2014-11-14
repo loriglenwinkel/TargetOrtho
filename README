@@ -10,8 +10,9 @@ System Requirements:
 INSTALL 
 Before running target ortho for the first time, unpack the following compressed files from the command line:
    from the current directory:
-   tar -zxvf genomes/*tar.gz
    tar -zxvf run/TargetOrtho.db.tar.gz
+   for each genome in the genomes folder (where * =each filename.tar.gz. For example: c_eleg_WS220.tar.gz):
+   tar -zxvf genomes/*.tar.gz
 
 To add TargetOrtho as a galaxy tool in a local galaxy instance manually:
    Install galaxy instance: See http://wiki.galaxyproject.org/Admin/Get%20Galaxy
