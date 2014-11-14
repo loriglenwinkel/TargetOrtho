@@ -7,6 +7,12 @@ System Requirements:
       numpy
       matplotlib
 
+INSTALL 
+Before running target ortho for the first time, unpack the following compressed files from the command line:
+   from the current directory:
+   tar -zxvf *.tar.gz -C run/genomes/*tar.gz
+   tar -zxvf *.tar.gz -C run/TargetOrtho.db.tar.gz
+
 To add TargetOrtho as a galaxy tool in a local galaxy instance manually:
    Install galaxy instance: See http://wiki.galaxyproject.org/Admin/Get%20Galaxy
    Place the uncompressed TargetOrtho directory in the tools directory found in the galaxy root directory. (path_to_galaxy/tools/TargetOrtho) 
