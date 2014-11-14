@@ -1,5 +1,8 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION: finds co-occurances of motifs by cross referencing results in All_conserved_hits tables from each input motif
+
 import sys
 from optparse import OptionParser
 import sqlite3 as lite
