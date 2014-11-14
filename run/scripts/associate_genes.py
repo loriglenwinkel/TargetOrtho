@@ -70,7 +70,7 @@ def mv_hits_output_to_sql():
         message="FIMO p value thresshold too stringent. No motif matches found for %s" %species
         raise Exception(message)
  
-    if filesize > 50000000:#20000000:
+    if filesize > 50000000:
         print 'using slow method to preserve memory'
         hit_id=0
         line_count=0
