@@ -8,6 +8,9 @@ System Requirements:
       matplotlib
 
 INSTALL 
+git clone https://github.com/loriglenwinkel/TargetOrtho.git 
+OR download directly using "Download Zip" button at https://github.com/loriglenwinkel/TargetOrtho
+
 Before running target ortho for the first time, unpack the following compressed files from the command line:
    from the current directory:
    tar -zxvf run/TargetOrtho.db.tar.gz
