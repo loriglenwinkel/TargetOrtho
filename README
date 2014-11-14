@@ -1,3 +1,7 @@
+Use TargetOrtho now at: http://ec2-23-20-137-161.compute-1.amazonaws.com/
+Reference: http://www.genetics.org/content/197/1/61.long
+Cite: Lori Glenwinkel, Di Wu, Gregory Minevich and Oliver Hobert. TargetOrtho: A Phylogenetic Footprinting Tool to Identify Transcription Factor Targets. Genetics May 1, 2014 vol. 197 no. 1 61-76
+
 System Requirements:
    x86_64 GNU/Linux
    MEME package version 4.0 
