@@ -1,5 +1,8 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:finds orthologous motif matches between species using result sql tables from findOrtho.py
+
 import itertools,sys
 import sqlite3 as lite
 from optparse import OptionParser
