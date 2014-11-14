@@ -1,5 +1,8 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:Looks up associated gene names for each motif match in the genome and pulls the reference genome ortholog names to be used by conserverd_ortho.py
+
 import sys
 from optparse import OptionParser
 import sqlite3 as lite
