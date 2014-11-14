@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
 # CREATE DATE: 2014
-# DESCRIPTION: filters TargetOrtho results for user defined genes of intereste (from query list input)
+# DESCRIPTION: filters TargetOrtho results for user defined genes of interest (from query list input)
 
 import os,re
 import sys
