@@ -1,9 +1,11 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION: creates All_conserved_hits tables from 1-5 conserved hits tables (made by conserved_ortho.py). Updates binding site features, calculates cumulative site score, rank orders all binding sites. Creats top_ranked_hits tables.
+
 import sys
 import numpy as np
 import  os
-
 import matplotlib
 matplotlib.use('Agg')#disables interactive mode
 import matplotlib.pyplot as plt
