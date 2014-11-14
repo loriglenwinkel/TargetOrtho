@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION: Main TargetOrtho script, controls execution of each module, calls threading script to process modules for each genome and each input motif in parrallel
 import os
 import sys
 import datetime
