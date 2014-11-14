@@ -1,5 +1,7 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION: extracts text from sqlite3 database tables and creates html or text outputs. Creates all output pages.
 import sys,os
 from optparse import OptionParser
 import sqlite3 as lite
