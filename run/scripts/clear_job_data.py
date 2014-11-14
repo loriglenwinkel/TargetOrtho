@@ -1,8 +1,12 @@
 #!/usr/bin/python
 #Author: Lori Glenwinkel
+# CREATE DATE: 2014
+# DESCRIPTION:removes temp files at job termination
+
 from optparse import OptionParser
 import os
 import sqlite3 as lite
+
 parser = OptionParser()
 parser.add_option('-j','--jobID',dest='jobID',help='-j 123345')
 parser.add_option('-c','--TargetOrtho_path',dest='TargetOrtho_path',help='-c /data/newTargetOrtho')
