@@ -17,7 +17,7 @@ INSTALL
 git clone https://github.com/loriglenwinkel/TargetOrtho.git 
 OR download directly using "Download Zip" button at https://github.com/loriglenwinkel/TargetOrtho
 
-Before running target ortho for the first time, unpack the following compressed files from the command line:
+Before running TargetOrtho for the first time, unpack the following compressed files from the command line:
    from the current directory:
    tar -zxvf run/TargetOrtho.db.tar.gz
    for each genome in the genomes folder (where * =each filename.tar.gz. For example: c_eleg_WS220.tar.gz):
