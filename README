@@ -21,10 +21,10 @@ git clone https://github.com/loriglenwinkel/TargetOrtho.git
 OR download directly using "Download Zip" button at https://github.com/loriglenwinkel/TargetOrtho
 
 Before running TargetOrtho for the first time, unpack the following compressed files from the command line:
-   1. from the current directory:
+   1. Navigate into the TargetOrtho directory:
    tar -zxvf run/TargetOrtho.db.tar.gz
    
-   2. Navigate to the run/genomes/ directory. For each genome in the genomes folder: 
+   2. Navigate into the run/genomes/ directory. For each genome in the genomes folder: 
    
    tar -zxvf *.tar.gz
    
