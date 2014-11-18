@@ -30,8 +30,7 @@ Before running TargetOrtho for the first time, unpack the following compressed f
    
    tar -zxvf *.tar.gz
    
-   notes:* =each filename.tar.gz. For example: c_eleg_WS220.tar.gz)
-   may need full privileges to execute command. Try inserting sudo before command.
+   note:* =each filename.tar.gz. For example: c_eleg_WS220.tar.gz. User must have full priveleges to execute each command.
 
 To add TargetOrtho as a galaxy tool in a local galaxy instance manually:
    1. Install galaxy instance: See http://wiki.galaxyproject.org/Admin/Get%20Galaxy
