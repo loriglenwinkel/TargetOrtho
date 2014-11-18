@@ -14,7 +14,8 @@ System Requirements:
 Tested on Amazon EC2 instance using ubuntu-precise-12.04-amd64-server-20131003
 
 To run TargetOrtho on your own Amazon EC2 instance:
-   find our AMI with TargetOrtho dependencies installed in Amazon Community AMIs: GalaxyTargetOrtho1.1 (ami-0076e068)
+   1. find our AMI with TargetOrtho dependencies installed in Amazon Community AMIs: GalaxyTargetOrtho1.1 (ami-0076e068)
+   2. See below for INSTALL instructions
 
 INSTALL 
 git clone https://github.com/loriglenwinkel/TargetOrtho.git 
