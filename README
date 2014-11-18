@@ -11,30 +11,38 @@ System Requirements:
       numpy
       matplotlib
 
-Tested on Amazon EC2 instance using ubuntu-precise-12.04-amd64-server-20131003 (ami-a73264ce)
+Tested on Amazon EC2 instance using ubuntu-precise-12.04-amd64-server-20131003
+
+To run TargetOrtho on your own Amazon EC2 instance:
+   find our AMI with TargetOrtho dependencies installed in Amazon Community AMIs: GalaxyTargetOrtho1.1 (ami-0076e068)
 
 INSTALL 
 git clone https://github.com/loriglenwinkel/TargetOrtho.git 
 OR download directly using "Download Zip" button at https://github.com/loriglenwinkel/TargetOrtho
 
 Before running TargetOrtho for the first time, unpack the following compressed files from the command line:
-   from the current directory:
+   1. from the current directory:
    tar -zxvf run/TargetOrtho.db.tar.gz
-   Navigate to the run/genomes/ directory
-   for each genome in the genomes folder (where * =each filename.tar.gz. For example: c_eleg_WS220.tar.gz):
+   
+   2. Navigate to the run/genomes/ directory. For each genome in the genomes folder: 
+   
    tar -zxvf *.tar.gz
+   
+   notes:* =each filename.tar.gz. For example: c_eleg_WS220.tar.gz)
+   may need full privileges to execute command. Try inserting sudo before command.
 
 To add TargetOrtho as a galaxy tool in a local galaxy instance manually:
-   Install galaxy instance: See http://wiki.galaxyproject.org/Admin/Get%20Galaxy
-   Place the uncompressed TargetOrtho directory in the tools directory found in the galaxy root directory. (path_to_galaxy/tools/TargetOrtho) 
-   Add the following line to the tool_conf.xml in the desired secion of the toolbox (tool_conf.xml is found in the galaxy root directory:path_to_galaxy/tool_conf.xml)
+   1. Install galaxy instance: See http://wiki.galaxyproject.org/Admin/Get%20Galaxy
+   2. Place the uncompressed TargetOrtho directory in the tools directory found in the galaxy root directory. (path_to_galaxy/tools/TargetOrtho) 
+   3. Add the following line to the tool_conf.xml in the desired secion of the toolbox (tool_conf.xml is found in the galaxy root directory:path_to_galaxy/tool_conf.xml)
        <tool file="TargetOrtho/TargetOrtho.xml"/>
-   Restart galaxy
+   4. Restart galaxy
 
 To run TargetOrtho from the command line:
-   navigate to TargetOrtho/run/scripts
+   navigatel to TargetOrtho/run/scripts
    command: python TargetOrtho.py -h
    Description: shows TargetOrtho usage including default parameters.
+   Note: user must have full privildges to execute scripts (may need run with sudo before command).
    
 To run TargetOrtho with example files:
    Example 1: 1 motif
