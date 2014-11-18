@@ -1,6 +1,7 @@
 Use TargetOrtho now at: http://ec2-23-20-137-161.compute-1.amazonaws.com/
-Reference: http://www.genetics.org/content/197/1/61.long
-Cite: Lori Glenwinkel, Di Wu, Gregory Minevich and Oliver Hobert. TargetOrtho: A Phylogenetic Footprinting Tool to Identify Transcription Factor Targets. Genetics May 1, 2014 vol. 197 no. 1 61-76
+Reference: 
+   Lori Glenwinkel, Di Wu, Gregory Minevich and Oliver Hobert. TargetOrtho: A Phylogenetic Footprinting Tool to Identify Transcription Factor Targets. Genetics May 1, 2014 vol. 197 no. 1 61-76
+   http://www.genetics.org/content/197/1/61.long
 
 System Requirements:
    x86_64 GNU/Linux
@@ -14,8 +15,11 @@ System Requirements:
 Tested on Amazon EC2 instance using ubuntu-precise-12.04-amd64-server-20131003
 
 To run TargetOrtho on your own Amazon EC2 instance:
-   1. find our AMI with TargetOrtho dependencies installed in Amazon Community AMIs: GalaxyTargetOrtho1.1 (ami-0076e068)
+   1. find our AMI with TargetOrtho dependencies installed in Amazon Community AMIs*: GalaxyTargetOrtho1.1 (ami-0076e068)
    2. See below for INSTALL instructions
+   Note: 
+         *TargetOrtho AMI is only available from Amazon's "US East" region community AMIs. 
+         TO copy an AMI to your region see: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html
 
 INSTALL 
 git clone https://github.com/loriglenwinkel/TargetOrtho.git 
