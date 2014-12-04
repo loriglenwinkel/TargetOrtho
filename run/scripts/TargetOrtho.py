@@ -26,7 +26,7 @@ parser.add_option( '-y', '--ordered', dest='motif_order', help='True or False: -
 parser.add_option( '-c', '--config' , dest='configFilePath', help='-c /TargetOrtho_path/run/scripts/config.txt')
 parser.add_option( '-z', '--genes_between' , dest='genes_between', help='number of genes allowed between motif match and associategene: -z 0')
 parser.add_option( '-Z', '--max_dist_if_genes_between' , dest='max_dist_if_genes_between', help='absolute nucleotide distance to search if genes are present between site and associated gene -z 2000')
-parser.add_option('-M','--gene_name',dest='gene_name',help='-a unc-3')
+parser.add_option('-M','--gene_name',dest='gene_name',help='-M unc-3')
 parser.add_option('-w','--QueryOnly',dest='QueryOnly',help='-w True to only run TargetOrtho on query list genes')
 parser.add_option('-p',dest='p_cutoff',help='--p_cutoff 1e-6')
 parser.add_option('-g','--jobID',dest='jobID',help='-g 123')
