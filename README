@@ -4,7 +4,7 @@ Reference:
 
 System Requirements:
    x86_64 GNU/Linux
-   MEME package version 4.0 
+   MEME package version 4.9.1 
    python 2.7+
    python modules:
       scipy
